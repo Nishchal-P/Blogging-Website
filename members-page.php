@@ -1,28 +1,19 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-    <title>Members page</title>
-    <link rel="stylesheet" type="text/css" href="includes.css">
-    <style type="text/css">
-
-    #mid-right-col {
-        text-align:center;
-        margin:auto;
-    }
-
-    #midcol h3 {
-        font-size:130%;
-        margin-top:0;
-        margin-bottom:0;
-    }
-
-    </style>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Admin Page</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="includes.css">
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 </head>
 <body>
+    <?php include("header.php"); ?>
+	<?php include("nav.php"); ?>
     <div id="container">
-        <?php include("header.php"); ?>
-        <?php include("nav.php"); ?>
-        <?php include("info-col.php"); ?>
         <div id="content">
             <?php
             if (!isset($_SESSION['user_level']) or ($_SESSION['user_level'] == 0))
@@ -38,8 +29,7 @@
             ?>
             <div id="midcol">
                 <div id="mid-left-col">
-                    <h3>Your Posts</h3>
-                    <br>
+                    <h4>Your Posts:-</h4>
                     <?php
                         require("mysqli_connect.php");
                         $uid = $_SESSION['user_id'];
@@ -61,8 +51,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div id="footer">
         <?php include("footer.php"); ?>
     </div>
 </body>

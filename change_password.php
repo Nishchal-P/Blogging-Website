@@ -1,22 +1,19 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-	<title>Change password</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Change Password</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="includes.css">
-	<style type="text/css">
-	p.error {
-		color: red;
-		font-size: 105%;
-		font-weight: bold;
-		text-align: center;
-	}
-	</style>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 </head>
 <body>
+	<?php include("header.php"); ?>
+	<?php include("nav.php"); ?>
 	<div id="container">
-		<?php include("header.php"); ?>
-		<?php include("nav.php"); ?>
-		<?php include("info-col.php"); ?>
 		<div id="content">
 			<p><?php
 			if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -90,8 +87,9 @@
 				<p><label class="label" for="psword2">Confirm New Password:</label><input id="psword2" type="password" name="psword2" size="30" maxlength="20" value="<?php if (isset($_POST['psword2'])) echo $_POST['psword2']; ?>"></p>
 				<p><input id="submit"type="submit" name="submit" value="Change Password"></p>
 			</form>
-			<?php include ('footer.php'); ?></p>
+			</p>
 		</div>
+		<?php include ('footer.php'); ?>
 	</div>
 </body>
 </html>
