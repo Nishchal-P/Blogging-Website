@@ -59,21 +59,19 @@
 				<form action="login.php" method="post" class="form-horizontal">
 					<div class="form-group">
 						<label class="control-label col-sm-6" for="email">Email:</label>
-						<div class="col-sm-2">
-							<input id="email" type="text" name="email" maxlength="60" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>" >
+						<div class="col-sm-6">
+							<input class="form-control" id="email" type="text" name="email" maxlength="60" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>" >
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-sm-6" for="password">Password:</label>
-						<div class="col-sm-2">
-							<input id="password" type="password" name="password" maxlength="20" value="<?php if (isset($_POST['password'])) echo $_POST['password']; ?>" >
+						<div class="col-sm-6">
+							<input class="form-control" id="password" type="password" name="password" maxlength="20" value="<?php if (isset($_POST['password'])) echo $_POST['password']; ?>" >
 						</div>
 					</div>
 					<div class="form-group">
-			    		<div class="col-sm-offset-5 col-sm-2">
-			      			<button type="submit" class="btn btn-default" name="submit">Login</button>
-			    		</div>
-			  		</div>
+			      		<button type="submit" class="btn btn-default" name="submit">Login</button>
+			    	</div>
 				</form>
 			</div>
 			<?php include ('footer.php'); ?>

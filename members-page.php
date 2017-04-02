@@ -27,28 +27,23 @@
             }
             echo '</h2>';
             ?>
-            <div id="midcol">
-                <div id="mid-left-col">
-                    <h4>Your Posts:-</h4>
-                    <?php
-                        require("mysqli_connect.php");
-                        $uid = $_SESSION['user_id'];
-                        $query = "SELECT title, id FROM post WHERE user_id=$uid";
-                        $result = mysqli_query($dbcon, $query);
-                        if(@mysqli_num_rows($result) == 0){
-                            echo 'You have not posted anything yet.';
-                        }
-                        while($row = mysqli_fetch_array($result)){
-                            echo '<a href="view_post.php?id=' . $row['id'] . '">' . $row['title'] . '</a><br>';
-                        }
-                    ?>
-                </div>
-                <div id="mid-right-col">
-                    <h3></h3>
-                    <p><b></b></p>
-                    <br>
-                    <br>
-                </div>
+            <br><br>
+            <h4>Your Posts:-</h4>
+            <div class="col-sm-6">
+                <?php
+                    require("mysqli_connect.php");
+                    $uid = $_SESSION['user_id'];
+                    $query = "SELECT title, id FROM post WHERE user_id=$uid";
+                    $result = mysqli_query($dbcon, $query);
+                    if(@mysqli_num_rows($result) == 0){
+                        echo 'You have not posted anything yet.';
+                    }
+                    echo '<ul class="nav nav-pills nav-stacked">';
+                    while($row = mysqli_fetch_array($result)){
+                        echo '<li><a href="view_post.php?id=' . $row['id'] . '">' . $row['title'] . '</a></li>';
+                    }
+                    echo '</ul>';
+                ?>
             </div>
         </div>
         <?php include("footer.php"); ?>

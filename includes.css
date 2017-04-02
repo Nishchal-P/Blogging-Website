@@ -1,19 +1,79 @@
 body {
 	padding-top: 50px;
-	background: #eeeeee;
+	background: #effaff;
 	color: #222222;
 }
 
 table{
-
+	margin-right: 10px;
 }
 
-tr:nth-child(odd){
-	background-color: #aaaaaa;
+td{
+	vertical-align: middle;
 }
 
-tr:nth-child(even){
-	background-color: #999999;
+th{
+	background-color: #002933;
+	color: #fff;
+}
+
+#user_remove{
+	font-size: 12px;
+	padding: 2px;
+	border-style: none;
+	background-color: #e7e7e7;
+}
+
+#user_remove:hover{
+	background-color: #f0f0f0;
+}
+
+.right{
+	text-align: right;
+}
+
+.navbar-default {
+	background-color: #003d4d;
+	border-color: #003d4d;
+}
+
+.navbar-default .navbar-brand{
+	color: #ddd;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #fff;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #ddd;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #fff;
+	background-color:rgba(255,255,255,0.1)
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #ddd;
+    background-color: rgba(255,255,255,0.1);
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+    color: #fff;
+    background-color:rgba(255,255,255,0.1);
+}
+
+.table-striped > tbody > tr:nth-child(odd){
+	background-color: #008fb3;
+	color: #000;
+}
+
+.table-striped > tbody > tr:nth-child(even){
+	background-color: #007a99;
+	color: #000;
 }
 
 .label {
@@ -44,18 +104,18 @@ p.error {
 }
 
 .nav-pills > li > a {
-	background-color: #333333;
-	color: #dddddd;
+	background-color: #006680;
+	color: #eeeeee;
 }
 
 .nav-pills > li > a:hover {
-	background-color: #222222;
+	background-color: #005266;
 	color: #ffffff;
 }
 
 #sidebar-wrapper {
 	width: 200px;
-	background: #000000;
+	background: #002933;
 	position: fixed;
 	height: 100%;
 }
@@ -70,7 +130,7 @@ p.error {
 }
 
 .sidebar-nav > li > a {
-	color: #999999;
+	color: #ffffff;
 	display: block;
 	text-decoration: none;
 	line-height: 50px;
@@ -79,7 +139,7 @@ p.error {
 
 .sidebar-nav > li > a:hover, .sidebar-nav > li.active {
 	color: #ffffff;
-	background: rgba(255,255,255,0.5);
+	background: rgba(255,255,255,0.1);
 	text-decoration: none;
 }
 

@@ -37,16 +37,25 @@
             }
             ?>
         </div>
-        <div id="loginfields">
-            <form method="post" action="post.php" id="post_form">
-                <p><label class="label" for="title">Title:</label></p>
-                <input type="text" name="title" size="100" font-size="1"></input>
-                <p><label class="label" for="content">Content:</label></p>
-                <textarea form="post_form" name="content" rows="20" cols="90"> </textarea>
-                <p>&nbsp;</p>
-                <p><input type="submit" id="submit" name="post" value="Post"></p>
-            </form>
-        </div>
+        <form class="form-horizontal" method="post" action="post.php" id="post_form">
+            <div class="form-group">
+                <label class="control-label col-sm-1" for="title">Title:</label>
+                <div class="col-sm-6">
+                    <input class="form-control" type="text" name="title" font-size="1"></input>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-1" for="content">Content:</label>
+                <div class="col-sm-6">
+                    <textarea class="form-control" form="post_form" name="content" rows="20" cols="90"> </textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2">
+                    <input type="submit" class="btn btn-default" id="submit" name="post" value="Post">
+                </div>
+            </div>
+        </form>
         <?php include("footer.php"); ?>
     </div>
 </body>

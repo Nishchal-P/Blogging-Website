@@ -72,26 +72,26 @@
 			<form action="register-page.php" method="post" class="form-horizontal">
 				<div class="form-group">
 					<label class="control-label col-sm-6" for="user">Username:</label>
-					<div class="col-sm-2">
-						<input id="user" type="text" name="user" maxlength="40" value="<?php if (isset($_POST['user'])) echo $_POST['user']; ?>">
+					<div class="col-sm-6">
+						<input class="form-control" id="user" type="text" name="user" maxlength="40" value="<?php if (isset($_POST['user'])) echo $_POST['user']; ?>">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label col-sm-6" for="email">Email:</label>
-					<div class="col-sm-2">
-						<input id="email" type="text" name="email" maxlength="60" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>" >
+					<div class="col-sm-6">
+						<input class="form-control" id="email" type="text" name="email" maxlength="60" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>" >
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label col-sm-6" for="psword1">Password:</label>
-					<div class="col-sm-2">
-						<input id="psword1" type="password" name="psword1" maxlength="20" value="<?php if (isset($_POST['psword1'])) echo $_POST['psword1']; ?>" >
+					<div class="col-sm-6">
+						<input class="form-control" id="psword1" type="password" name="psword1" maxlength="20" value="<?php if (isset($_POST['psword1'])) echo $_POST['psword1']; ?>" >
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label col-sm-6" for="psword2">Confirm Password:</label>
-					<div class="col-sm-2">
-						<input id="psword2" type="password" name="psword2" maxlength="20" value="<?php if (isset($_POST['psword2'])) echo $_POST['psword2']; ?>" >
+					<div class="col-sm-6">
+						<input class="form-control" id="psword2" type="password" name="psword2" maxlength="20" value="<?php if (isset($_POST['psword2'])) echo $_POST['psword2']; ?>" >
 					</div>
 				</div>
 				<div class="form-group">
