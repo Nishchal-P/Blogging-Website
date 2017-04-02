@@ -1,24 +1,21 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-	<title>Change password</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Change Password</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="includes.css">
-	<style type="text/css">
-	p.error {
-		color: red;
-		font-size: 105%;
-		font-weight: bold;
-		text-align: center;
-	}
-	</style>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 </head>
 <body>
+	<?php include("header.php"); ?>
+	<?php include("nav.php"); ?>
 	<div id="container">
-		<?php include("header.php"); ?>
-		<?php include("nav.php"); ?>
-		<?php include("info-col.php"); ?>
-		<div id="content">
-			<p><?php
+		<div id="center">
+			<?php
 			if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				require ('./mysqli_connect.php');
 				$errors = array();
@@ -83,15 +80,37 @@
 		}
 			?>
 			<h2>Change Your Password</h2>
-			<form action="register-password.php" method="post">
-				<p><label class="label" for="email">Email Address:</label><input id="email" type="text" name="email" size="30" maxlength="60" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>" > </p>
-				<p><label class="label" for="psword">Current Password:</label><input id="psword" type="password" name="psword" size="30" maxlength="20" value="<?php if (isset($_POST['psword'])) echo $_POST['psword']; ?>"></p>
-				<p><label class="label" for="psword1">New Password:</label><input id="psword1" type="password" name="psword1" size="30" maxlength="20" value="<?php if (isset($_POST['psword1'])) echo $_POST['psword1']; ?>"></p>
-				<p><label class="label" for="psword2">Confirm New Password:</label><input id="psword2" type="password" name="psword2" size="30" maxlength="20" value="<?php if (isset($_POST['psword2'])) echo $_POST['psword2']; ?>"></p>
-				<p><input id="submit"type="submit" name="submit" value="Change Password"></p>
+			<form action="register-password.php" method="post" class="form-horizontal">
+				<div class="form-group">
+					<label class="control-label col-sm-6" for="email">Email Address:</label>
+					<div class="col-sm-6">
+						<input class="form-control" id="email" type="text" name="email" maxlength="60" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-6" for="psword">Current Password:</label>
+					<div class="col-sm-6">
+						<input class="form-control" id="psword" type="password" name="psword" maxlength="20" value="<?php if (isset($_POST['psword'])) echo $_POST['psword']; ?>">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-6" for="psword1">New Password:</label>
+					<div class="col-sm-6">
+						<input class="form-control" id="psword1" type="password" name="psword1" maxlength="20" value="<?php if (isset($_POST['psword1'])) echo $_POST['psword1']; ?>">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-6" for="psword2">Confirm New Password:</label>
+					<div class="col-sm-6">
+						<input class="form-control" id="psword2" type="password" name="psword2" maxlength="20" value="<?php if (isset($_POST['psword2'])) echo $_POST['psword2']; ?>">
+					</div>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-default" id="submit" type="submit" name="submit">Change Password</button>
+				</div>
 			</form>
-			<?php include ('footer.php'); ?></p>
 		</div>
+		<?php include ('footer.php'); ?>
 	</div>
 </body>
 </html>

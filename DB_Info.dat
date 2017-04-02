@@ -1,0 +1,60 @@
+Schema:-
+users:
+    (
+    id` int(11) NOT NULL AUTO_INCREMENT,
+    `username` varchar(15) NOT NULL,
+    `password` varchar(20) NOT NULL,
+    `email` varchar(30) DEFAULT NULL,
+    `join_date` date DEFAULT NULL,
+    `user_level` int(11) NOT NULL DEFAULT '1',
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `username` (`username`)
+    )
+
+post:
+    (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `content` blob,
+    `user_id` int(11) DEFAULT NULL,
+    `title` varchar(100) DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    KEY `user_id` (`user_id`),
+    CONSTRAINT `post_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+    )
+
+comment:
+    (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `post_id` int(11) DEFAULT NULL,
+    `content` blob,
+    `time_posted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    `user_id` int(11) DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    KEY `post_id` (`post_id`),
+    KEY `user_id` (`user_id`),
+    CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `post` (`id`),
+    CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+    )
+
+
+Triggers:-
+To create triggers copy the following:-
+mysql> DELIMITER $$
+
+mysql> CREATE TRIGGER post_delete
+    -> BEFORE DELETE ON users
+    -> FOR EACH ROW
+    -> BEGIN
+    ->  DELETE FROM post
+    ->  WHERE user_id=OLD.id;
+    -> END$$
+
+mysql> CREATE TRIGGER comment_delete
+    -> BEFORE DELETE ON post
+    -> FOR EACH ROW
+    -> BEGIN
+    ->  DELETE FROM comment
+    ->  WHERE post_id=OLD.id;
+    -> END$$
+
+mysql> DELIMITER ;
