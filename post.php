@@ -14,39 +14,37 @@
     <?php include("header.php"); ?>
     <?php include("nav.php"); ?>
     <div id="container">
-        <div id="content">
-            <?php
-            if(!isset($_SESSION['user_id'])){
-                echo 'Only registered users can create new posts. <a href="login.php">Login</a> to continue';
-                exit();
-            }
-            else{
-                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                    require("mysqli_connect.php");
-                    if(!empty($_POST['title'])){
-                        $id = $_SESSION['user_id'];
-                        $title = $_POST['title'];
-                        $content = $_POST['content'];
-                        $query = "INSERT INTO post (user_id, title, content) VALUES ($id, '$title', '$content')";
-                        $result = mysqli_query($dbcon, $query);
-                        if($result){
-                            echo 'Success!';
-                        }
+        <?php
+        if(!isset($_SESSION['user_id'])){
+            echo 'Only registered users can create new posts. <a href="login.php">Login</a> to continue';
+            exit();
+        }
+        else{
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                require("mysqli_connect.php");
+                if(!empty($_POST['title'])){
+                    $id = $_SESSION['user_id'];
+                    $title = $_POST['title'];
+                    $content = $_POST['content'];
+                    $query = "INSERT INTO post (user_id, title, content) VALUES ($id, '$title', '$content')";
+                    $result = mysqli_query($dbcon, $query);
+                    if($result){
+                        echo 'Success!';
                     }
                 }
             }
-            ?>
-        </div>
+        }
+        ?>
         <form class="form-horizontal" method="post" action="post.php" id="post_form">
             <div class="form-group">
                 <label class="control-label col-sm-1" for="title">Title:</label>
-                <div class="col-sm-6">
+                <div class="col-sm-8">
                     <input class="form-control" type="text" name="title" font-size="1"></input>
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-sm-1" for="content">Content:</label>
-                <div class="col-sm-6">
+                <div class="col-sm-8">
                     <textarea class="form-control" form="post_form" name="content" rows="20" cols="90"> </textarea>
                 </div>
             </div>

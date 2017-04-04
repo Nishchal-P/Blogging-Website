@@ -13,8 +13,8 @@
 				<?php
 				session_start();
 				if(!isset($_SESSION['user_id'])){
-					echo '<li><a href="register-page.php"><span class="glyphicon glyphicon-user"></span> Sign-Up</a></li>';
-					echo '<li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>';
+					echo '<li><a href="register-page.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>';
+					echo '<li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>';
 				}
 				else {
 					echo '<li><a href="change_password.php"><span class="glyphicon glyphicon-edit"></span> Change Password</a></li>';

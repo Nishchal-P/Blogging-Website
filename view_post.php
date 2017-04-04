@@ -25,7 +25,7 @@
                 if($_GET['id'] != NULL){
                     require("mysqli_connect.php");
                     $pid=$_GET['id'];
-                    $query = "SELECT title, content FROM post WHERE id=$pid";
+                    $query = "SELECT title, user_id, content FROM post WHERE id=$pid";
                     $result = mysqli_query($dbcon, $query);
                     if(mysqli_num_rows($result) == 0){
                         echo 'The post you are looking for does not exist.';
@@ -34,18 +34,19 @@
                         echo '<br>2. The post was taken down by an admin.';
                     }
                     $row = mysqli_fetch_array($result);
+                    $user_id = $row['user_id'];
+                    $query ="SELECT username FROM users WHERE id=$user_id";
+                    $result = mysqli_query($dbcon, $query);
+                    $poster = mysqli_fetch_array($result);
                 }
                 else{
                     header("Location: search.php");
                     exit();
                 }
             ?>
-            <p style="font-size:30px"><label for="title">
-                <?php echo $row['title'] ?>
-            </label></p>
-            <p><label for="content">
-                <?php echo $row['content']?>
-            </label></p>
+            <p style="font-size: 30px"><b><?php echo $row['title'] ?></b></p>
+            <p> Author: <?php echo $poster['username']; ?> </p>
+            <p style="font-size: 20px"><?php echo $row['content']?></p>
             <br><br>
             <?php
             if(mysqli_num_rows($result) != 0){
@@ -62,11 +63,10 @@
                 $result = mysqli_query($dbcon, $query);
                 if(@mysqli_num_rows($result) == 0){
                     echo'No comments yet <br><br>';
-
                 }
                 while($rows = mysqli_fetch_array($result)){
-                    echo '<p> ' . $rows['username'] . ': ' . $rows['content'];
-                    echo ' ('. $rows['time_posted'] . ')</p>';
+                    echo '<p><b> ' . $rows['username'] . '</b> : ' . $rows['content'];
+                    echo ' <text style="color:grey">('. $rows['time_posted'] . ')</text></p>';
                 }
                 if(isset($_SESSION['user_id'])){
                     echo '
@@ -79,7 +79,10 @@
                     </form>
                     ';
                 }
-                if($_SESSION['user_level'] == 2){
+                else{
+                    echo '<br><a href="login.php" style="color: red"><u>Sign in</u></a> to comment on this post.';
+                }
+                if(isset($_SESSION['user_level']) and $_SESSION['user_level'] == 2){
                     echo '<br><br>';
                     echo '<button class="btn btn-default" onclick="removePost(' . $pid . ')">Remove Post</button>';
                 }

@@ -1,6 +1,11 @@
 <div id="sidebar-wrapper">
 	<nav id="sb">
 		<ul class="sidebar-nav">
+			<li>
+				<a href="about_us.php" title="About Us">
+					<span class="fa fa-anchor solo">About Us</span>
+				</a>
+			</li>
             <li>
 				<a href="post.php" title="New Post">
 					<span class="fa fa-anchor solo">New Post</span>

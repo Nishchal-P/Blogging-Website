@@ -29,22 +29,42 @@
             ?>
             <br><br>
             <h4>Your Posts:-</h4>
-            <div class="col-sm-6">
-                <?php
-                    require("mysqli_connect.php");
-                    $uid = $_SESSION['user_id'];
-                    $query = "SELECT title, id FROM post WHERE user_id=$uid";
-                    $result = mysqli_query($dbcon, $query);
-                    if(@mysqli_num_rows($result) == 0){
-                        echo 'You have not posted anything yet.';
-                    }
-                    echo '<ul class="nav nav-pills nav-stacked">';
-                    while($row = mysqli_fetch_array($result)){
-                        echo '<li><a href="view_post.php?id=' . $row['id'] . '">' . $row['title'] . '</a></li>';
-                    }
-                    echo '</ul>';
-                ?>
-            </div>
+            <?php
+            $uid = $_SESSION['user_id'];
+            require("mysqli_connect.php");
+            $q1 = "SELECT id, title, content, DATE_FORMAT(posted,'%M %e ,%Y') AS date_posted FROM post WHERE user_id=$uid ORDER BY id DESC";
+            $res1 = mysqli_query($dbcon, $q1);
+            if(@mysqli_num_rows($res1) == 0){
+                echo 'You haven\'t posted anything yet.';
+            }
+            else{
+                while($row1 = mysqli_fetch_array($res1)){
+                    echo '<div class="col-sm-10">
+                        <a href="view_post.php?id=' . $row1['id'] . '" id="well-anchor">
+                            <div class="well">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <div class="media-heading">
+                                            <text style="font-size: 150%">'. $row1['title']. '</text>
+                                        </div>
+                                        <p>'. substr($row1['content'], 0, 50) . (strlen($row1['content'])>50? '...' : ' ') . '</p>
+                                        <ul class="list-inline list-unstyled">
+                                        <li><span><i class="glyphicon glyphicon-calendar"></i> '. $row1['date_posted']. ' </span></li>
+                                        <li>|</li><li> </li>';
+                                        $pid = $row1['id'];
+                                        $q2 = "SELECT COUNT(id) AS count_id FROM comment WHERE post_id=$pid";
+                                        $res2 = mysqli_query($dbcon, $q2);
+                                        $row2 = mysqli_fetch_array($res2);
+                                        echo '<span><i class="glyphicon glyphicon-comment"></i> ' . $row2["count_id"] . ' comment' . ($row2["count_id"]==1? '': 's') . '</span>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>';
+                }
+            }
+            ?>
         </div>
         <?php include("footer.php"); ?>
     </div>
