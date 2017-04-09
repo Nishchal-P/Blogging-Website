@@ -1,7 +1,7 @@
 Schema:-
 users:
     (
-    id` int(11) NOT NULL AUTO_INCREMENT,
+    `id` int(11) NOT NULL AUTO_INCREMENT,
     `username` varchar(15) NOT NULL,
     `password` varchar(20) NOT NULL,
     `email` varchar(30) DEFAULT NULL,

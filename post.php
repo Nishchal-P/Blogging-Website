@@ -26,10 +26,18 @@
                     $id = $_SESSION['user_id'];
                     $title = $_POST['title'];
                     $content = $_POST['content'];
-                    $query = "INSERT INTO post (user_id, title, content) VALUES ($id, '$title', '$content')";
-                    $result = mysqli_query($dbcon, $query);
+                    $stmt = mysqli_stmt_init($dbcon);
+                    mysqli_stmt_prepare($stmt, "INSERT INTO post (user_id, title, content, posted) VALUES (?, ?, ?, NOW())");
+                    mysqli_stmt_bind_param($stmt, 'isb', $id, $title, $content);
+                    $content = NULL;
+                    mysqli_stmt_send_long_data($stmt, 2, $_POST['content']);
+                    $result = mysqli_stmt_execute($stmt);
                     if($result){
-                        echo 'Success!';
+                        header("Location: members-page.php");
+                        exit();
+                    }
+                    else{
+                        echo mysqli_error($dbcon);
                     }
                 }
             }

@@ -5,6 +5,19 @@ body {
 	min-height: 100%;
 }
 
+table{
+	margin-right: 10px;
+}
+
+td{
+	vertical-align: middle;
+}
+
+th{
+	background-color: #002933;
+	color: #fff;
+}
+
 .jumbotron{
 	padding: 20px;
 	background-color: #e6e6e6;
@@ -18,19 +31,6 @@ body {
 
 .well:hover{
 	background-color: #d9d9d9;
-}
-
-table{
-	margin-right: 10px;
-}
-
-td{
-	vertical-align: middle;
-}
-
-th{
-	background-color: #002933;
-	color: #fff;
 }
 
 #well-anchor{

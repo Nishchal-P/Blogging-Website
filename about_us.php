@@ -17,27 +17,31 @@
 		<div class="row">
 			<div class="col-sm-10">
 				<h1 class="page-header">About Us
-					<small>It's Nice to Meet You!</small>
 				</h1>
-				<p font-size=20px>We at <strong>WeBlog</strong> provides you  the best platform where you can express your ideas and get help from others sitting across the globe.</p>
+				<p font-size=20px>We at <strong>WeBlog</strong> provide you the best platform to express your views and ideas and to get help from others across the globe.</p>
 			</div>
 		</div>
 		<div class="col-sm-12">
-			<h2 class="page-header">Our Team</h2>
+		<div class="col-sm-8">
+				<h2 class="page-header">Rules and Regulations</h2>
+				<p>All users are expected to follow the following rules while making use of our site:-
+				<ul>
+					<li>Posts and comments should only be in English.</li>
+					<li>Do not post inappropriate content. Inappropriate posts will be taken down.</li>
+					<li>Do not act rude to other users. Be polite even when disagreeing with others.</li>
+					<li>Respect others' opinions and views.</li>
+					<li>No comment wars.</li>
+					<li>No link litter.</li>
+				</ul>
+				<p>Violating above rules will result into removal of the concerned user.</p>
+				<p>Hope you have a fun time here!</p>
+				<p class="text-right">-WeBlog Team</p>
+			</div>
 		</div>
-		<div class="col-sm-3  text-center">
-			<img class="img-circle img-responsive img-center " src="http://placehold.it/200x200" alt="">
-			<h3 >Akhil Powar
-				<small>B.Tech (Computer)</small>
-			</h3>
-		</div>
-		<div class="col-sm-3  text-center">
-			<img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
-			<h3 >Praveen Kumar Suthar
-				<small>B.Tech (Computer)</small>
-			</h3>
-		</div>
-		<br>
+		<p><br><br></p>
+		<b>Contact Us:-</b>
+		<p>Akhil Powar : akhilpowar16@yahoo.com
+		<p>Praveen Suthar : kalamsuthar@gmail.com
 		<?php include("footer.php");?>
 	</div>
 </body>
