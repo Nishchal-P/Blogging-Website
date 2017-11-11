@@ -1,7 +1,7 @@
 <?php
 //Setting credentials for MySQL login
-DEFINE ('DB_USER', 'blog_user');
-DEFINE ('DB_PASSWORD', 'blog_user');
+DEFINE ('DB_USER', 'root');
+DEFINE ('DB_PASSWORD', '');
 DEFINE ('DB_HOST', 'localhost');
 DEFINE ('DB_NAME', 'blog');
 
